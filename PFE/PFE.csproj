@@ -1,0 +1,173 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{7AB153A4-534C-4B5D-9CAB-13EC5FBEB367}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>PFE</RootNamespace>
+    <AssemblyName>PFE</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Categories.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Categories.Designer.cs">
+      <DependentUpon>Categories.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Chambres.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Chambres.Designer.cs">
+      <DependentUpon>Chambres.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Class.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Class.Designer.cs">
+      <DependentUpon>Class.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Clients.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Clients.Designer.cs">
+      <DependentUpon>Clients.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Consommations.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Consommations.Designer.cs">
+      <DependentUpon>Consommations.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Hotels.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Hotels.Designer.cs">
+      <DependentUpon>Hotels.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Offre.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Offre.Designer.cs">
+      <DependentUpon>Offre.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Préstations.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Préstations.Designer.cs">
+      <DependentUpon>Préstations.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Réservations.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Réservations.Designer.cs">
+      <DependentUpon>Réservations.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Tarifier.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tarifier.Designer.cs">
+      <DependentUpon>Tarifier.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Categories.resx">
+      <DependentUpon>Categories.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Chambres.resx">
+      <DependentUpon>Chambres.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Class.resx">
+      <DependentUpon>Class.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Clients.resx">
+      <DependentUpon>Clients.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Consommations.resx">
+      <DependentUpon>Consommations.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Hotels.resx">
+      <DependentUpon>Hotels.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Offre.resx">
+      <DependentUpon>Offre.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Préstations.resx">
+      <DependentUpon>Préstations.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Réservations.resx">
+      <DependentUpon>Réservations.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tarifier.resx">
+      <DependentUpon>Tarifier.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
