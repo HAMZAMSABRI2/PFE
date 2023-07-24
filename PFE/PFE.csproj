@@ -12,6 +12,21 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -88,6 +103,66 @@
     <Compile Include="Hotels.Designer.cs">
       <DependentUpon>Hotels.cs</DependentUpon>
     </Compile>
+    <Compile Include="InfoCategories.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InfoCategories.Designer.cs">
+      <DependentUpon>InfoCategories.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InfoChambres.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InfoChambres.Designer.cs">
+      <DependentUpon>InfoChambres.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InfoClass.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InfoClass.Designer.cs">
+      <DependentUpon>InfoClass.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InfoClient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InfoClient.Designer.cs">
+      <DependentUpon>InfoClient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InfoConsommation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InfoConsommation.Designer.cs">
+      <DependentUpon>InfoConsommation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InfoHotel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InfoHotel.Designer.cs">
+      <DependentUpon>InfoHotel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InfoOffre.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InfoOffre.Designer.cs">
+      <DependentUpon>InfoOffre.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InfoPrestation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InfoPrestation.Designer.cs">
+      <DependentUpon>InfoPrestation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InfoReservation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InfoReservation.Designer.cs">
+      <DependentUpon>InfoReservation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InfoTarifier.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InfoTarifier.Designer.cs">
+      <DependentUpon>InfoTarifier.cs</DependentUpon>
+    </Compile>
     <Compile Include="Offre.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -135,6 +210,36 @@
     <EmbeddedResource Include="Hotels.resx">
       <DependentUpon>Hotels.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="InfoCategories.resx">
+      <DependentUpon>InfoCategories.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InfoChambres.resx">
+      <DependentUpon>InfoChambres.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InfoClass.resx">
+      <DependentUpon>InfoClass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InfoClient.resx">
+      <DependentUpon>InfoClient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InfoConsommation.resx">
+      <DependentUpon>InfoConsommation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InfoHotel.resx">
+      <DependentUpon>InfoHotel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InfoOffre.resx">
+      <DependentUpon>InfoOffre.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InfoPrestation.resx">
+      <DependentUpon>InfoPrestation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InfoReservation.resx">
+      <DependentUpon>InfoReservation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InfoTarifier.resx">
+      <DependentUpon>InfoTarifier.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Offre.resx">
       <DependentUpon>Offre.cs</DependentUpon>
     </EmbeddedResource>
@@ -168,6 +273,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

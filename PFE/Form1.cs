@@ -99,5 +99,86 @@ namespace PFE
         {
 
         }
+
+        private void infoHotelToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+
+        }
+
+        private void infoClientToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            InfoClient ih = new InfoClient();
+
+            ih.Show();
+        }
+
+        private void iNToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            InfoClass ic = new InfoClass();
+
+            ic.Show();
+        }
+
+        private void infoCatégoriesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            InfoCategories ica = new InfoCategories();
+
+            ica.Show();
+        }
+
+        private void infoPréstationsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            InfoPrestation ip = new InfoPrestation();
+
+            ip.Show();
+        }
+
+        private void infoHotelToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            InfoHotel ih = new InfoHotel();
+
+            ih.Show();
+        }
+
+        private void infoConsommationsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            InfoConsommation icon = new InfoConsommation();
+
+            icon.Show();
+        }
+
+        private void infoChambresToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            InfoChambres icha = new InfoChambres();
+
+            icha.Show();
+        }
+
+        private void infoRéservationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            InfoReservation infoReservation = new InfoReservation();
+
+            infoReservation.Show();
+        }
+
+        private void infoTarifierToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            InfoTarifier infoTarifier = new InfoTarifier();
+
+            infoTarifier.Show();
+        }
+
+        private void infoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            InfoOffre infoOffre = new InfoOffre();
+
+            infoOffre.Show();
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

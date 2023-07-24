@@ -8,12 +8,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace PFE
 {
     public partial class Chambres : Form
     {
-        public static SqlConnection con = new SqlConnection("Data source = HP23\\SQLEXPRESS ; initial catalog = gestion_hotels ; integrated security = true");
+        public static SqlConnection con = new SqlConnection("Data source = HP41\\SQLEXPRESS ; initial catalog = gestion_hotels ; integrated security = true");
         public static SqlCommand cmd = new SqlCommand(" ", con);
         public Chambres()
         {
@@ -23,7 +24,7 @@ namespace PFE
         private void Chambres_Load(object sender, EventArgs e)
         {
             con.Open();
-            cmd.CommandText = "select code_catégories from categories;" + "select nbre_etoile from classe";
+            cmd.CommandText = "select code_catégories from categories;" + "select numéro_d_hotel from hotel";
 
             int a = 0;
 
@@ -43,9 +44,9 @@ namespace PFE
             while (drd.Read())
             {
                 a = 1;
-                comboBox2.Items.Add(drd["nbre_etoile"].ToString());
-                comboBox2.ValueMember = drd["nbre_etoile"].ToString();
-                comboBox2.DisplayMember = drd["nbre_etoile"].ToString();
+                comboBox2.Items.Add(drd["numéro_d_hotel"].ToString());
+                comboBox2.ValueMember = drd["numéro_d_hotel"].ToString();
+                comboBox2.DisplayMember = drd["numéro_d_hotel"].ToString();
 
             }
 
@@ -55,6 +56,16 @@ namespace PFE
 
         private void button1_Click(object sender, EventArgs e)
         {
+            try
+            {
+                if(textBox1.Text == "" || textBox2.Text == "" || comboBox1.Text == "" || comboBox2.Text == "" )
+                {
+                    MessageBox.Show("saisie invalide");
+                }
+
+                else
+                {
+
             con.Open();
 
             cmd.CommandText = "insert into chambres values (" + int.Parse(textBox1.Text) + " , '" + textBox2.Text + " ', " + int.Parse(comboBox1.Text) + " , "
@@ -65,6 +76,14 @@ namespace PFE
             con.Close();
 
             textBox1.Clear();
+                    textBox2.Clear();
+                    comboBox1.Items.Clear();
+                    comboBox2.Items.Clear();
+                }
+            }catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -102,10 +121,13 @@ namespace PFE
 
                 }
                 con.Close();
+                if (b == 0) MessageBox.Show("il n'existe pas dans le système");
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+
+                con.Close();
 
             }
         }
@@ -132,6 +154,8 @@ namespace PFE
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+
+                con.Close();
             }
         }
 
@@ -155,7 +179,14 @@ namespace PFE
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+
+                con.Close();
             }
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

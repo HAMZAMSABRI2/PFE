@@ -1,19 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace PFE
 {
     public partial class Réservations : Form
     {
-        public static SqlConnection con = new SqlConnection("Data source = HP23\\SQLEXPRESS ; initial catalog = gestion_hotels ; integrated security = true");
+        public static SqlConnection con = new SqlConnection("Data source = HP41\\SQLEXPRESS ; initial catalog = gestion_hotels ; integrated security = true");
         public static SqlCommand cmd = new SqlCommand(" ", con);
         public Réservations()
         {
@@ -23,7 +16,7 @@ namespace PFE
         private void Réservations_Load(object sender, EventArgs e)
         {
             con.Open();
-            cmd.CommandText = "select num_chambres from chambres;"+ "select code_clients from clients";
+            cmd.CommandText = "select num_chambres from chambres;" + "select code_clients from clients";
 
             int a = 0;
 
@@ -43,9 +36,9 @@ namespace PFE
             while (drd.Read())
             {
                 a = 1;
-                comboBox1.Items.Add(drd["code_clients"].ToString());
-                comboBox1.ValueMember = drd["code_clients"].ToString();
-                comboBox1.DisplayMember = drd["code_clients"].ToString();
+                comboBox2.Items.Add(drd["code_clients"].ToString());
+                comboBox2.ValueMember = drd["code_clients"].ToString();
+                comboBox2.DisplayMember = drd["code_clients"].ToString();
 
             }
 
@@ -54,6 +47,9 @@ namespace PFE
 
         private void button1_Click(object sender, EventArgs e)
         {
+            try
+            {
+
             con.Open();
 
             cmd.CommandText = "insert into reservations values (" + int.Parse(comboBox1.Text) + " , " +
@@ -62,8 +58,21 @@ namespace PFE
 
             cmd.ExecuteNonQuery();
 
-            con.Close();
+             con.Close();
+             textBox1.Clear();
+             textBox2.Clear();
+             comboBox1.Items.Clear();
+             comboBox2.Items.Clear();
 
+                MessageBox.Show("saisie validé avec succès");
+
+
+            }catch(Exception ex) 
+            {
+                MessageBox.Show(ex.Message);  
+                
+                con.Close();
+            }
 
         }
 
@@ -89,24 +98,27 @@ namespace PFE
 
                         textBox1.Text = dr[1].ToString();
 
-                        dateTimePicker1.Text = dr[2].ToString();
+                        dateTimePicker1.Text = dr[3].ToString();
 
-                        dateTimePicker2.Text = dr[3].ToString();
+                        dateTimePicker2.Text = dr[4].ToString();
 
-                        dateTimePicker3.Text = dr[4].ToString();
+                        dateTimePicker3.Text = dr[5].ToString();
 
-                        textBox2.Text = dr[5].ToString();
-                        
+                        textBox2.Text = dr[6].ToString();
+
 
                     }
 
 
                 }
                 con.Close();
+                if (b == 0) MessageBox.Show("il n'existe pas dans le système");
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+
+                con.Close();
 
             }
         }
@@ -117,7 +129,8 @@ namespace PFE
             {
                 con.Open();
 
-                cmd.CommandText = "update reservations set code_clients=" + int.Parse(comboBox2.Text) + " , num_res=" + int.Parse(textBox1)
+                cmd.CommandText = "update reservations set code_clients=" + int.Parse(comboBox2.Text) + " , num_res=" + int.Parse(textBox1.Text) +
+                    " , date_debut='" + dateTimePicker1.Value + " ', date_fin='" + dateTimePicker2.Value + " ', date_paye_res='" + dateTimePicker3.Value + " ' where num_chambres=" + int.Parse(comboBox1.Text);
 
                 cmd.ExecuteNonQuery();
 
@@ -132,7 +145,39 @@ namespace PFE
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+
+                con.Close();
             }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                con.Open();
+
+                cmd.CommandText = "delete from reservations where num_chambres=" + int.Parse(comboBox1.Text);
+
+                cmd.ExecuteNonQuery();
+
+                con.Close();
+
+
+                textBox1.Clear();
+
+                textBox1.Focus();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+
+                con.Close();
+            }
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

@@ -13,7 +13,7 @@ namespace PFE
 {
     public partial class Consommations : Form
     {
-        public static SqlConnection con = new SqlConnection("Data source = HP23\\SQLEXPRESS ; initial catalog = gestion_hotels ; integrated security = true");
+        public static SqlConnection con = new SqlConnection("Data source = HP41\\SQLEXPRESS ; initial catalog = gestion_hotels ; integrated security = true");
         public static SqlCommand cmd = new SqlCommand(" ", con);
         public Consommations()
         {
@@ -42,7 +42,19 @@ namespace PFE
         }
 
         private void button1_Click(object sender, EventArgs e)
+
+
         {
+
+            try
+            {
+
+            if(textBox1.Text =="" || comboBox1.Text == "")
+            {
+                MessageBox.Show("saisie invalide");
+            }
+
+            else { 
             con.Open();
 
             cmd.CommandText = "insert into consommations values (" + int.Parse(textBox1.Text) + " , '" +
@@ -52,6 +64,15 @@ namespace PFE
 
             con.Close();
 
+                    textBox1.Clear();
+                    comboBox1.Items.Clear();
+            }
+            }catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+
+                con.Close();
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -60,7 +81,7 @@ namespace PFE
             {
                 con.Open();
 
-                cmd.CommandText = "select * from clients";
+                cmd.CommandText = "select * from consommations";
 
                 SqlDataReader dr;
 
@@ -80,8 +101,9 @@ namespace PFE
 
                         dateTimePicker1.Text = dr[1].ToString();
 
-                        dateTimePicker2.Text = dr[2].ToString();    
+                        dateTimePicker2.Text = dr[2].ToString();
 
+                        comboBox1.Text = dr[3].ToString();
                         
 
 
@@ -92,10 +114,13 @@ namespace PFE
 
                 }
                 con.Close();
+                if (b == 0) MessageBox.Show("il n'existe pas dans le système");
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+
+                con.Close();
 
             }
         }
@@ -124,6 +149,8 @@ namespace PFE
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+
+                con.Close();
             }
         }
 
@@ -147,7 +174,19 @@ namespace PFE
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+
+                con.Close();
             }
+        }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

@@ -12,7 +12,7 @@ namespace PFE
 {
     public partial class Préstations : Form
     {
-        public static SqlConnection con = new SqlConnection("Data source = HP23\\SQLEXPRESS ; initial catalog = gestion_hotels ; integrated security = true");
+        public static SqlConnection con = new SqlConnection("Data source = HP41\\SQLEXPRESS ; initial catalog = gestion_hotels ; integrated security = true");
         public static SqlCommand cmd = new SqlCommand(" ", con);
         public Préstations()
         {
@@ -25,100 +25,56 @@ namespace PFE
         }
 
         private void button1_Click(object sender, EventArgs e)
+
+
         {
+
+            try
+            {
+                if(textBox1.Text =="" || textBox2.Text =="")
+                {
+                    MessageBox.Show("saisie invalide");
+                }
+
+                else
+                {
+
             con.Open();
 
-            cmd.CommandText = "insert into prestations values (" + int.Parse(textBox1.Text) + " , '" + textBox2.Text + " )";
+            cmd.CommandText = "insert into prestations values (" + int.Parse(textBox1.Text) + " , '" + textBox2.Text +"'" +  " )";
             cmd.ExecuteNonQuery();
 
             con.Close();
 
             textBox1.Clear();
+                    textBox2.Clear();
+                }
+            }catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+
+                con.Close();
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            try
-            {
-                con.Open();
 
-                cmd.CommandText = "select * from prestations";
-
-                SqlDataReader dr;
-
-                dr = cmd.ExecuteReader();
-
-                int b = 0;
-
-                while (dr.Read())
-                {
-                    if (dr[0].ToString().Equals(textBox1.Text))
-                    {
-                        b = 1;
-
-
-
-                        textBox2.Text = dr[1].ToString();
-
-
-
-                    }
-
-
-                }
-                con.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-
-            }
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            try
-            {
-                con.Open();
 
-                cmd.CommandText = "update hotel set designation_prestations='" + textBox2.Text + "' where code_prestations=" + int.Parse(textBox1.Text);
-                cmd.ExecuteNonQuery();
-
-                con.Close();
-
-
-                textBox1.Clear();
-
-                textBox1.Focus();
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            try
-            {
-                con.Open();
+  
+        }
 
-                cmd.CommandText = "delete from prestations where code_prestations=" + int.Parse(textBox1.Text);
-
-                cmd.ExecuteNonQuery();
-
-                con.Close();
-
-
-                textBox1.Clear();
-
-                textBox1.Focus();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+        private void button5_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

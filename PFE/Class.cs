@@ -13,7 +13,7 @@ namespace PFE
 {
     public partial class Class : Form
     {
-        public static SqlConnection con = new SqlConnection("Data source = HP23\\SQLEXPRESS ; initial catalog = gestion_hotels ; integrated security = true");
+        public static SqlConnection con = new SqlConnection("Data source = HP41\\SQLEXPRESS ; initial catalog = gestion_hotels ; integrated security = true");
         public static SqlCommand cmd = new SqlCommand(" ",con);
         public Class()
         {
@@ -31,7 +31,17 @@ namespace PFE
         }
 
         private void button3_Click(object sender, EventArgs e)
+
         {
+            try { 
+            if(textBox1.Text == "")
+            {
+                MessageBox.Show("saisie invalide");
+            }
+            else
+            {
+                
+
             con.Open();
 
             cmd.CommandText = "insert into classe values (" + int.Parse(textBox1.Text) + " )";
@@ -41,6 +51,17 @@ namespace PFE
             con.Close();
 
             textBox1.Clear();
+
+                    MessageBox.Show("saisie effectué avec success");
+            }
+
+            }catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+
+                con.Close();
+
+            }
         }
     }
 }
